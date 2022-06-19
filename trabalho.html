@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+
+<body>
+  <div class="container">
+    <button class="option" id="mercado">Trabalhar no Mercado</button>
+  
+    <h4 class="desc">Um trabalho como caixa de um Supermercado, pagando até $10.</h4>
+  </div>
+  <div class="container">
+    <button class="option" id="trafico">Trabalhar no tráfico</button>
+  
+    <h4 class="desc">Um trabalho para o tráfico, pagando até $30 com 55% de chance de ser pego.</h4>
+  </div>
+  <div class="container">
+    <button class="option">Trabalhar </button>
+  
+    <h4 class="desc">Um trabalho como caixa de um Supermercado, pagando até $10.</h4>
+  </div>
+  <button id="voltar">Voltar</button>
+  <script type="module">
+    function alterarMoney(ganho) {
+      let money = localStorage.getItem("money");
+      
+      let moneyValue = parseInt(money)
+      
+      const valorTotal = moneyValue += ganho;
+      
+      localStorage.setItem("money", parseInt(valorTotal));
+    }
+    
+    function serPego(perder) {
+      let money = localStorage.getItem("money");
+      
+      let moneyValue = parseInt(money)
+      
+      const valorTotal = moneyValue -= perder
+      
+      if(valorTotal > 0) {
+        localStorage.setItem("money", parseInt(valorTotal));
+      } else {
+        localStorage.removeItem("money")
+        localStorage.removeItem("Name")
+        localStorage.removeItem("lvl")
+        alert("Você está falido, o jogo irá reiniciar!")
+        
+        window.location.replace('/html/intro.html')
+      }
+    }
+    
+    const mercado = document.getElementById("mercado")
+    
+    mercado.addEventListener('click', () => {
+      let ganho = Math.floor(Math.random() * (10 - 2 + 1)) + 2;
+      
+      alterarMoney(ganho)
+    })
+    
+    const trafico = document.getElementById("trafico");
+    
+    trafico.addEventListener('click', () => {
+      let ganho = Math.floor(Math.random() * (30 - 5 + 1)) + 5;
+      
+      let chance = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+      
+      if(chance >= 55) {
+        alterarMoney(ganho)
+      } else {
+        alert(`Você foi pego e perdeu $${ganho}!`)
+        serPego(ganho)
+      }
+      
+    })
+    
+    const voltar = document.getElementById("voltar")
+    
+    voltar.addEventListener('click', () => {
+      window.location.replace('/html/jogo.html')
+    })
+  </script>
+  <style>
+    .option {
+      border-radius: 20px;
+      width: 200px;
+      height: 100px;
+      background-color: skyblue;
+      text-align: center;
+      margin-right: 10px;
+    }
+    
+    .desc {
+      color: skyblue;
+      font-size: 15px;
+    }
+    
+    .container {
+      display: flex;
+    }
+    
+    body {
+      background-color: black;
+    }
+    
+    #voltar {
+      border-radius: 10px;
+      width: 150px;
+      height: 30px;
+      margin-left: 130px;
+      margin-top: 30px;
+    }
+  </style>
+</body>
+
+</html>
