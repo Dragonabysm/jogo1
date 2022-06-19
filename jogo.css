@@ -1,0 +1,29 @@
+header {
+  background-color: black;
+}
+
+body {
+  background-color: black;
+}
+
+#money {
+  margin: 10px;
+  color: purple;
+}
+
+#name {
+  margin: 10px;
+  color: purple;
+}
+
+#lvl {
+  margin: 10px;
+  color: purple;
+}
+
+.btn {
+  border-radius: 15px;
+  width: 200px;
+  height: 30px;
+  margin: 10px;
+}

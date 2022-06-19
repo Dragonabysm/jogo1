@@ -1,0 +1,34 @@
+body {
+  background-color: black;
+}
+
+.titlePr {
+  font-size: 35px;
+  text-align: center;
+  color: skyblue;
+  background-color: black;
+}
+
+#nameInput {
+  border-radius: 10px;
+  text-align: center;
+  height: 40px;
+  width: 250px;
+  margin-left: 70px;
+  margin-top: 60px;
+  background-color: purple;
+}
+
+#btn {
+  border-radius: 20px;
+  text-align: center; 
+  background-color: darkviolet;
+  margin-left: 125px;
+  height: 40px;
+  width: 150px;
+}
+
+h4 {
+  color: purple;
+  text-align: center;
+}
